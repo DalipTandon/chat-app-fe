@@ -5,6 +5,7 @@ import appStore from "./utils/appStore"
 import Body from "./components/Body"
 import Navbar from "./components/Navbar"
 import CreateRoom from "./components/CreateRoom"
+import JoinRoom from "./components/JoinRoom"
 
 const AppContent = () => {
   const location = useLocation();
@@ -16,6 +17,7 @@ const AppContent = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/body" element={<Body />} />
         <Route path="/createroom" element={<CreateRoom/>} />
+        <Route path="/joinroom" element={<JoinRoom/>} />
       </Routes>
     </div>
   );
