@@ -1,19 +1,32 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom"
 import Login from "./components/Login"
 import { Provider } from "react-redux"
 import appStore from "./utils/appStore"
+import Body from "./components/Body"
+import Navbar from "./components/Navbar"
 
-function App() {
+const AppContent = () => {
+  const location = useLocation();
 
   return (
+    <div>
+      {location.pathname !== "/login" && <Navbar />}
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/body" element={<Body />} />
+      </Routes>
+    </div>
+  );
+};
+
+const App = () => {
+  return (
     <Provider store={appStore}>
-    <BrowserRouter>
-    <Routes>
-      <Route path="/login" element={<Login/>}/>
-    </Routes>
-    </BrowserRouter>
+      <BrowserRouter>
+        <AppContent />
+      </BrowserRouter>
     </Provider>
-  )
-}
+  );
+};
 
 export default App

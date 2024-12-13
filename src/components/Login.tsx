@@ -3,20 +3,22 @@ import { useEffect, useState } from "react";
 import { BASE_URL } from "../utils/config";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { useNavigate } from "react-router-dom";
 
 
 const Login=()=>{
-    const[username,setName]=useState("");
-    const[email,setEmail]=useState("");
-    const[password,setpassword]=useState("");
+    const[username,setName]=useState("dalip2");
+    const[email,setEmail]=useState(" ");
+    const[password,setpassword]=useState("dalip@123");
     const[isLogin,setIsLogin]=useState(false);
     const dispatch=useDispatch();
+    const navigate=useNavigate();
     const handleSignup=async()=>{
         const res=await axios.post(BASE_URL+"/signup",{
             username,email,password
         },{withCredentials:true});
        dispatch(addUser(res.data));
-        
+        navigate("/body")
     }
     const handleSignin=async()=>{
         const res=await axios.post(BASE_URL+"/signin",{
@@ -24,6 +26,7 @@ const Login=()=>{
         },{withCredentials:true})
       //  console.log(res.data);
         dispatch(addUser(res.data));
+        navigate("/body")
     }
     useEffect(()=>{
         handleSignup;
