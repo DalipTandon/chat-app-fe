@@ -1,10 +1,18 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import Login from "./components/Login"
+import { Provider } from "react-redux"
+import appStore from "./utils/appStore"
 
 function App() {
 
   return (
-    <div>
-     <div className="bg-red-700 text-4xl">helo</div>
-    </div>
+    <Provider store={appStore}>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/login" element={<Login/>}/>
+    </Routes>
+    </BrowserRouter>
+    </Provider>
   )
 }
 
