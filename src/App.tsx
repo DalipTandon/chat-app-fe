@@ -4,6 +4,7 @@ import { Provider } from "react-redux"
 import appStore from "./utils/appStore"
 import Body from "./components/Body"
 import Navbar from "./components/Navbar"
+import CreateRoom from "./components/CreateRoom"
 
 const AppContent = () => {
   const location = useLocation();
@@ -14,6 +15,7 @@ const AppContent = () => {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/body" element={<Body />} />
+        <Route path="/createroom" element={<CreateRoom/>} />
       </Routes>
     </div>
   );
