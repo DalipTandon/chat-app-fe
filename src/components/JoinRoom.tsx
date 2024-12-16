@@ -1,16 +1,19 @@
 import axios from "axios";
 import { useEffect, useState } from "react"
 import { BASE_URL } from "../utils/config";
+import { useNavigate } from "react-router-dom";
 
 
 
 const JoinRoom=()=>{
     const [roomId,setRoomId]=useState("");
+    const navigate=useNavigate();
     const JoinRoom=async()=>{
         const res=await axios.post(BASE_URL+"/joinroom",{roomId},{withCredentials:true});
         console.log(res.data);
-        
+        navigate("/chatroom",{ state: { roomId } })
     }
+   
     useEffect(()=>{
         JoinRoom
     })

@@ -6,6 +6,7 @@ import Body from "./components/Body"
 import Navbar from "./components/Navbar"
 import CreateRoom from "./components/CreateRoom"
 import JoinRoom from "./components/JoinRoom"
+import ChatRoom from "./components/ChatRoom"
 
 const AppContent = () => {
   const location = useLocation();
@@ -18,6 +19,7 @@ const AppContent = () => {
         <Route path="/body" element={<Body />} />
         <Route path="/createroom" element={<CreateRoom/>} />
         <Route path="/joinroom" element={<JoinRoom/>} />
+        <Route path="/chatroom" element={<ChatRoom/>} />
       </Routes>
     </div>
   );
